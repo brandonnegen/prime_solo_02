@@ -9,6 +9,9 @@
 
 // 3) The third bug I found was in the newArray[2] and newArray[3]. They both needed to be rounded to make
 //    the numbers correct. I added Math.round to both and everything is A-OK.
+
+
+//   STILL WORKING ON MAKING IT PRETTY!!!!!  :) :) :) :) :)
 // Three Bugs
 
 var arrayAtticus = ["Atticus", "2405", "47000", 3];
