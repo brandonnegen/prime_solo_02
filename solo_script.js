@@ -11,7 +11,6 @@
 //    the numbers correct. I added Math.round to both and everything is A-OK.
 
 
-//   STILL WORKING ON MAKING IT PRETTY!!!!!  :) :) :) :) :)
 // Three Bugs
 
 var arrayAtticus = ["Atticus", "2405", "47000", 3];
@@ -29,8 +28,9 @@ position = document.getElementById('content');
 //Loop the array, extracting each array and writing information to the DOM
 //Note that the information is not 'clean'
 for(var i = 0; i < array.length; i++){
-	array[i] = calculateSTI(array);
+	array[i] = calculateSTI(array).join(", ");
  	newEl = document.createElement('li');
+  newEl.style.listStyleType = 'none';
 	newText = document.createTextNode(array[i]);
 	newEl.appendChild(newText);
 	position.appendChild(newEl);
