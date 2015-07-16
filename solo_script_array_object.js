@@ -1,24 +1,36 @@
-// 1) The first bug I found was within the getBaseSTI function. When returning "basePercent" the code was
-//    return the "basePercent - 1" which gave a negative value to the percentage. I removed the "- 1" and now
-//    the bonus percent is a positive number.
+function  Person(name, employeeNumber, baseSalary, reviewScore){
+  this.name = name;
+  this.employeeNumber = employeeNumber;
+  this.baseSalary = baseSalary;
+  this.reviewScore = reviewScore;
+}
 
-// 2) The second bug I found was when declaring what "newArray[0]"" would be. It was pulling in the entire
-//    "arrayAtticus" and not just the name in each seperate array. I changed newArray[0] = array[0] to
-//    newArray[0] = array[i][0]. It is now pulling in each seperate name from each seperate array. The same
-//    "[i]" needed to be added to the variable baseSalary and the variable reviewScore.
+var objectAtticus = {
+  name: "Atticus",
+  employeeNumber: "2405",
+  baseSalary: "47000",
+  reviewScore: 3
+}
+var objectJem = {
+  name: "Jem",
+  employeeNumber: "62347",
+  baseSalary: "63500",
+  reviewScore: 4
+}
+var objectBoo = {
+  name: "Boo",
+  employeeNumber: "11435",
+  baseSalary: "54000",
+  reviewScore: 3
+}
+var objectScout = {
+  name: "Scout",
+  employeeNumber: "6243",
+  baseSalary: "74750",
+  reviewScore: 5
+}
 
-// 3) The third bug I found was in the newArray[2] and newArray[3]. They both needed to be rounded to make
-//    the numbers correct. I added Math.round to both and everything is A-OK.
-
-
-// Three Bugs
-
-var arrayAtticus = ["Atticus", "2405", "47000", 3];
-var arrayJem = ["Jem", "62347", "63500", 4];
-var arrayBoo = ["Boo", "11435", "54000", 3];
-var arrayScout = ["Scout", "6243", "74750", 5];
-
-var array = [arrayAtticus, arrayJem, arrayBoo, arrayScout];
+var array = [objectAtticus, objectJem, objectBoo, objectScout];
 
 //Create variables used to write to the DOM
 var newEl, newText, position;
@@ -36,16 +48,15 @@ for(var i = 0; i < array.length; i++){
 	position.appendChild(newEl);
 }
 
-
-function calculateSTI(array){
+function calculateSTI(objectName){
 
   var newArray = [];
 
-  newArray[0] = array[i][0];
+  newArray[0] = array[i].name;
  
-  var employeeNumber = array[i][1];
-  var baseSalary = array[i][2];
-  var reviewScore = array[i][3];
+  var employeeNumber = array[i].employeeNumber;
+  var baseSalary = array[i].baseSalary;
+  var reviewScore = array[i].reviewScore;
 
   var bonus = getBaseSTI(reviewScore) + getYearAdjustment(employeeNumber) - getIncomeAdjustment(baseSalary);
   if(bonus > 0.13){
