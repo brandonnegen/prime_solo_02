@@ -28,7 +28,7 @@ position = document.getElementById('content');
 //Loop the array, extracting each array and writing information to the DOM
 //Note that the information is not 'clean'
 for(var i = 0; i < array.length; i++){
-	array[i] = calculateSTI(array).join(", ");
+	array[i] = calculateSTI(array).join(",   ");
  	newEl = document.createElement('li');
   newEl.style.listStyleType = 'none';
 	newText = document.createTextNode(array[i]);
